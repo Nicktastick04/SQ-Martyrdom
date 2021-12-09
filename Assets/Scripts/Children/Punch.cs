@@ -14,12 +14,13 @@ public class Punch : MonoBehaviour
 
     public IEnumerator PunchCo()
     {
-        //Parent.animator.SetBool("punching",true);
+        Parent.animator.SetBool("punching", false);
+        this.Parent.rigidbody.velocity = Vector3.zero;
+        Parent.animator.SetBool("punching", true);
         Parent.currentState = PlayerState.punch;
         yield return null;
-        //Parent.animator.SetBool("punching", false);
+        Parent.animator.SetBool("punching", false);
         yield return new WaitForSeconds(0.5f);
-        if (Parent.currentState == PlayerState.punch)
-            Parent.currentState = PlayerState.walk;
+        Parent.currentState = PlayerState.walk;
     }
 }

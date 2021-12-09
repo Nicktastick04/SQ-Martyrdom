@@ -15,8 +15,12 @@ public class Projectile_Spawner : MonoBehaviour
 
     public IEnumerator ProjectileCo()
     {
+        this.Parent.rigidbody.velocity = Vector3.zero;
+        Parent.animator.SetBool("fireball", true);
         Parent.currentState = PlayerState.projectile;
+        yield return null;
         Instantiate(projectile, transform.position, Quaternion.identity);
+        Parent.animator.SetBool("fireball", false);
         yield return new WaitForSeconds(1.4f);
         Parent.currentState = PlayerState.walk;
     }

@@ -28,6 +28,8 @@ public class Player1_Parent : MonoBehaviour
     private FDash dash1;
     private BDash dash2;
 
+    private Health_Controller health;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +42,8 @@ public class Player1_Parent : MonoBehaviour
 
         dash1 = GameObject.FindObjectOfType<FDash>();
         dash2 = GameObject.FindObjectOfType<BDash>();
+
+        health = GameObject.FindObjectOfType<Health_Controller>();
     }
 
     // Update is called once per frame
@@ -52,13 +56,19 @@ public class Player1_Parent : MonoBehaviour
                  break;
          }*/
 
-        if (Input.GetButtonDown("Punch"))
+        if (Input.GetButtonDown("Punch") && currentState != PlayerState.kick)
+        {
+            StopAllCoroutines();
             StartCoroutine(attack1.PunchCo());
+        }
 
-        if (Input.GetButtonDown("Kick"))
+        if (Input.GetButtonDown("Kick") && currentState != PlayerState.kick)
+        {
+            StopAllCoroutines();
             StartCoroutine(attack2.KickCo());
+        }
 
-        if (Input.GetButtonDown("Projectile"))
+        if (Input.GetButtonDown("Projectile") && currentState != PlayerState.kick && currentState != PlayerState.punch)
             StartCoroutine(attack3.ProjectileCo());
 
         if (Input.GetButtonDown("FDash"))

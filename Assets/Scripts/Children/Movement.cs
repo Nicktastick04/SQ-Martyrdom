@@ -23,7 +23,18 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         if (Parent.currentState == PlayerState.walk)
+        {
+            if (Input.GetAxisRaw("Horizontal") > 0)
+                Parent.animator.SetBool("walkingForward", true);
+            else
+                Parent.animator.SetBool("walkingForward", false);
+
+            if (Input.GetAxisRaw("Horizontal") < 0)
+                Parent.animator.SetBool("walkingBackward", true);
+            else
+                Parent.animator.SetBool("walkingBackward", false);
             ApplyMovement();
+        }
     }
 
     public void CheckInput()
