@@ -56,25 +56,26 @@ public class Player1_Parent : MonoBehaviour
                  break;
          }*/
 
-        if (Input.GetButtonDown("Punch") && currentState != PlayerState.kick)
+        if (Input.GetButtonDown("Punch") && currentState != PlayerState.kick && currentState != PlayerState.projectile)
         {
             StopAllCoroutines();
             StartCoroutine(attack1.PunchCo());
         }
 
-        if (Input.GetButtonDown("Kick") && currentState != PlayerState.kick)
+        if (Input.GetButtonDown("Kick") && currentState != PlayerState.kick && currentState != PlayerState.projectile)
         {
             StopAllCoroutines();
             StartCoroutine(attack2.KickCo());
         }
 
-        if (Input.GetButtonDown("Projectile") && currentState != PlayerState.kick && currentState != PlayerState.punch)
+        if (Input.GetButtonDown("Projectile") && currentState != PlayerState.kick && currentState != PlayerState.punch && currentState != PlayerState.Fdash && currentState != PlayerState.Bdash && currentState != PlayerState.projectile)
             StartCoroutine(attack3.ProjectileCo());
 
-        if (Input.GetButtonDown("FDash"))
+        if (Input.GetButtonDown("FDash") && currentState != PlayerState.kick && currentState != PlayerState.punch && currentState != PlayerState.Fdash && currentState != PlayerState.Bdash && currentState != PlayerState.projectile)
             StartCoroutine(dash1.FDashCo());
 
-        if (Input.GetButtonDown("BDash"))
+        if (Input.GetButtonDown("BDash") && currentState != PlayerState.kick && currentState != PlayerState.punch && currentState != PlayerState.Fdash && currentState != PlayerState.Bdash && currentState != PlayerState.projectile)
             StartCoroutine(dash2.BDashCo());
+        //if (Input.GetButtonDown)
     }
 }
