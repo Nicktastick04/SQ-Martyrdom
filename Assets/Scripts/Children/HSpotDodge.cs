@@ -17,7 +17,7 @@ public class HSpotDodge : MonoBehaviour
         Parent.currentState = PlayerState.Hspotdodge;
         yield return null;
         //animator.SetBool("dodge", false);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.6f);
         Parent.currentState = PlayerState.walk;
     }
 }

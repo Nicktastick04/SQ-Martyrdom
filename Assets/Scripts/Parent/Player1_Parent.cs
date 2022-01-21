@@ -27,6 +27,8 @@ public class Player1_Parent : MonoBehaviour
     private Projectile_Spawner attack3;
     private FDash dash1;
     private BDash dash2;
+    private SpotDodge dodge1;
+    private HSpotDodge dodge2;
 
     private Health_Controller health;
 
@@ -43,6 +45,9 @@ public class Player1_Parent : MonoBehaviour
         dash1 = GameObject.FindObjectOfType<FDash>();
         dash2 = GameObject.FindObjectOfType<BDash>();
 
+        dodge1 = GameObject.FindObjectOfType<SpotDodge>();
+        dodge2 = GameObject.FindObjectOfType<HSpotDodge>();
+
         health = GameObject.FindObjectOfType<Health_Controller>();
     }
 
@@ -56,26 +61,33 @@ public class Player1_Parent : MonoBehaviour
                  break;
          }*/
 
-        if (Input.GetButtonDown("Punch") && currentState != PlayerState.kick && currentState != PlayerState.projectile)
+        if (Input.GetButtonDown("Punch") && currentState != PlayerState.kick && currentState != PlayerState.projectile && currentState != PlayerState.spotdodge && currentState != PlayerState.Hspotdodge)
         {
             StopAllCoroutines();
             StartCoroutine(attack1.PunchCo());
         }
 
-        if (Input.GetButtonDown("Kick") && currentState != PlayerState.kick && currentState != PlayerState.projectile)
+        if (Input.GetButtonDown("Kick") && currentState != PlayerState.kick && currentState != PlayerState.projectile && currentState != PlayerState.spotdodge && currentState != PlayerState.Hspotdodge)
         {
             StopAllCoroutines();
             StartCoroutine(attack2.KickCo());
         }
 
-        if (Input.GetButtonDown("Projectile") && currentState != PlayerState.kick && currentState != PlayerState.punch && currentState != PlayerState.Fdash && currentState != PlayerState.Bdash && currentState != PlayerState.projectile)
+        if (Input.GetButtonDown("Projectile") && currentState != PlayerState.kick && currentState != PlayerState.punch && currentState != PlayerState.Fdash && currentState != PlayerState.Bdash && currentState != PlayerState.projectile && currentState != PlayerState.spotdodge && currentState != PlayerState.Hspotdodge)
             StartCoroutine(attack3.ProjectileCo());
 
-        if (Input.GetButtonDown("FDash") && currentState != PlayerState.kick && currentState != PlayerState.punch && currentState != PlayerState.Fdash && currentState != PlayerState.Bdash && currentState != PlayerState.projectile)
+        if (Input.GetButtonDown("FDash") && currentState != PlayerState.kick && currentState != PlayerState.punch && currentState != PlayerState.Fdash && currentState != PlayerState.Bdash && currentState != PlayerState.projectile && currentState != PlayerState.spotdodge && currentState != PlayerState.Hspotdodge)
             StartCoroutine(dash1.FDashCo());
 
-        if (Input.GetButtonDown("BDash") && currentState != PlayerState.kick && currentState != PlayerState.punch && currentState != PlayerState.Fdash && currentState != PlayerState.Bdash && currentState != PlayerState.projectile)
+        if (Input.GetButtonDown("BDash") && currentState != PlayerState.kick && currentState != PlayerState.punch && currentState != PlayerState.Fdash && currentState != PlayerState.Bdash && currentState != PlayerState.projectile && currentState != PlayerState.spotdodge && currentState != PlayerState.Hspotdodge)
             StartCoroutine(dash2.BDashCo());
-        //if (Input.GetButtonDown)
+
+        if (Input.GetButtonDown("SpotDodge") && currentState != PlayerState.kick && currentState != PlayerState.punch && currentState != PlayerState.Fdash && currentState != PlayerState.Bdash && currentState != PlayerState.projectile && currentState != PlayerState.spotdodge && currentState != PlayerState.Hspotdodge)
+            StartCoroutine(dodge1.SpotDodgeCo());
+
+        if (Input.GetButtonDown("HSpotDodge") && currentState != PlayerState.kick && currentState != PlayerState.punch && currentState != PlayerState.Fdash && currentState != PlayerState.Bdash && currentState != PlayerState.Hspotdodge)
+        {
+            StartCoroutine(dodge2.HSpotDodgeCo());
+        }
     }
 }
