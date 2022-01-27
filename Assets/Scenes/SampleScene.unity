@@ -2967,7 +2967,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2987,7 +2987,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 937359811}
   m_HandleRect: {fileID: 0}
@@ -3976,7 +3976,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -3996,7 +3996,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 1948543147}
   m_HandleRect: {fileID: 0}
@@ -4422,6 +4422,7 @@ GameObject:
   - component: {fileID: 2085961716}
   - component: {fileID: 2085961715}
   - component: {fileID: 2085961718}
+  - component: {fileID: 2085961719}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4745,6 +4746,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.0000005, y: 4}
   m_EdgeRadius: 0
+--- !u!114 &2085961719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085961703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7175fa0889fa3d74187d7b561ac0bbb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1900827563}
+  maxHealth: 100
+  currentHealth: 100
 --- !u!1 &2137528006
 GameObject:
   m_ObjectHideFlags: 0
